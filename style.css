@@ -41,11 +41,12 @@ header div{
 }
 
 /* must fix */
-#search icon{
+#search + span{
     border: 1px solid grey;
     padding: 1px;
     border-top-right-radius: 17px;
     border-bottom-right-radius: 17px;
+    background-color:grey;
 }
 
 div section{
@@ -70,7 +71,4 @@ body{
     overflow: hidden;
 }
 
-logo{
-    height: 30px;
-    width: auto;
-    margin-left: 10px;}
+
