@@ -24,41 +24,39 @@
 
     <header>
 
-       
-        
-        <div>
-            <span class="material-symbols-outlined">menu</span>
+        <div class="header-left">
+            <button id="menu-btn" class="icon-btn" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
 
-            <!-- Fixed logo image -->
             <img src="./assets/logo.svg"
                  id="logo"
                  alt="YouTube Logo">
 
-            <sup>ZA</sup>
+            <sup class="logo-badge">ZA</sup>
         </div>
 
-        <div>
+        <div class="header-center">
             <input type="search" placeholder="Search" id="search">
-
-            <!-- Fixed invalid id -->
-            <span id="search-icon"
-                  class="material-symbols-outlined">search</span>
+            <span id="search-icon" class="material-symbols-outlined">search</span>
         </div>
 
-        <div>
+        <div class="header-right">
+            <span class="material-symbols-outlined mobile-search">search</span>
+
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                 <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
             </button>
 
-            <button>+ Create</button>
+            <button class="create-btn">+ Create</button>
 
             <span class="material-symbols-outlined">notifications</span>
 
-            <span>9+</span>
+            <span class="notification-badge">9+</span>
 
-            <img
-            src="https://via.placeholder.com/40"
-            alt="Profile icon">
+            <img class="profile-icon"
+                 src="https://via.placeholder.com/40"
+                 alt="Profile icon">
         </div>
 
     </header>
@@ -77,10 +75,11 @@
 
 </div>
 
-    <!-- Added container -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
     <div class="container">
 
-        <aside>
+        <aside id="sidebar">
 
             <div>
 
