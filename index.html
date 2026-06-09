@@ -11,6 +11,13 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
     <title>YouTube Clone</title>
+
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
 
 <body>
@@ -23,7 +30,8 @@
             <span class="material-symbols-outlined">menu</span>
 
             <!-- Fixed logo image -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
+            <img src="./assets/logo.svg"
+                 id="logo"
                  alt="YouTube Logo">
 
             <sup>ZA</sup>
@@ -38,6 +46,10 @@
         </div>
 
         <div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+            </button>
+
             <button>+ Create</button>
 
             <span class="material-symbols-outlined">notifications</span>
@@ -208,7 +220,7 @@
 
                 <div class="thumbnail">
                     <img
-                    src="https://i.ytimg.com/an_webp/Q7D9XMXENRA/mqdefault_6s.webp?du=3000&sqp=CNDnnNEG&rs=AOn4CLAggj_68JFXbQTF2nePdHgtZ31YlQ"
+                    src="https://i.ytimg.com/an_webp/Q7D9XMXENRA/mqdefault_6s.webp?du=3000&sqp=CID1ntEG&rs=AOn4CLD-mVmvuvZJDqAOUd2ik7AA7STh-w"
                     alt="Thumbnail">
 
                     <span class="duration">10:30</span>

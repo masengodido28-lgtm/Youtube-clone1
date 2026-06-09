@@ -1,3 +1,33 @@
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f2f2f2;
+    --bg-tertiary: #f8f8f8;
+    --text-primary: #0f0f0f;
+    --text-secondary: #606060;
+    --border-color: #e5e5e5;
+    --input-border: #cccccc;
+    --chip-hover: #e5e5e5;
+    --chip-active-bg: #0f0f0f;
+    --chip-active-color: #f1f1f1;
+    --scrollbar-thumb: #c7c7c7;
+    --button-hover: #e5e5e5;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #272727;
+    --bg-tertiary: #3f3f3f;
+    --text-primary: #f1f1f1;
+    --text-secondary: #aaaaaa;
+    --border-color: #3f3f3f;
+    --input-border: #303030;
+    --chip-hover: #3f3f3f;
+    --chip-active-bg: #f1f1f1;
+    --chip-active-color: #0f0f0f;
+    --scrollbar-thumb: #717171;
+    --button-hover: #4a4a4a;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -5,11 +35,12 @@
 }
 
 body{
-    background-color: #ffffff;
-    color: #0f0f0f;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: Arial, sans-serif;
     height: 100vh;
     overflow: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Header */
@@ -19,14 +50,16 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 10px 16px;
-    height: 60px; /* Added fixed header height */
-    border-bottom: 1px solid #e5e5e5; /* Added separator */
+    height: 60px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 header div{
     display: flex;
     align-items: center;
-    gap: 10px; /* Added spacing */
+    gap: 10px;
 }
 
 header img{
@@ -35,66 +68,98 @@ header img{
 
 .material-symbols-outlined{
     cursor: pointer;
+    color: var(--text-primary);
+}
+
+/* Theme Toggle */
+
+.theme-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.theme-toggle:hover{
+    background-color: var(--bg-secondary);
+}
+
+.theme-toggle .material-symbols-outlined{
+    font-size: 24px;
 }
 
 /* Search */
 
 #search{
     width: 40vw;
-    max-width: 550px; /* Added max width */
+    max-width: 550px;
     height: 40px;
     padding: 0 15px;
-    border: 1px solid #cccccc;
+    border: 1px solid var(--input-border);
     border-radius: 20px 0 0 20px;
     outline: none;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+#search::placeholder{
+    color: var(--text-secondary);
 }
 
 #search + span{
     height: 40px;
     width: 64px;
-    border: 1px solid #cccccc;
-    border-left: none; /* Added */
+    border: 1px solid var(--input-border);
+    border-left: none;
     border-radius: 0 20px 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: var(--bg-tertiary);
 }
 
 /* Sidebar */
 
 aside{
     width: 240px;
-    height: calc(100vh - 60px); /* Adjusted for header */
+    height: calc(100vh - 60px);
     overflow-y: auto;
     float: left;
     padding: 12px;
-    border-right: 1px solid #e5e5e5; /* Added */
+    border-right: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 aside h3{
     margin: 15px 10px;
     font-size: 15px;
+    color: var(--text-primary);
 }
 
 .buttons{
     display: flex;
     align-items: center;
-    gap: 15px; /* Added */
+    gap: 15px;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
     margin-bottom: 5px;
+    color: var(--text-primary);
 }
 
 .buttons:hover{
-    background-color: #f2f2f2;
+    background-color: var(--bg-secondary);
 }
 
 .buttons img{
-    width: 24px; /* Added */
-    height: 24px; /* Added */
-    border-radius: 50%; /* Added */
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
 }
 
 .buttons > :first-child{
@@ -104,10 +169,12 @@ aside h3{
 /* Main Content */
 
 main{
-    margin-left: 240px; /* Added to avoid overlap with sidebar */
+    margin-left: 240px;
     height: calc(100vh - 60px);
     overflow-y: auto;
     padding: 20px;
+    background-color: var(--bg-primary);
+    transition: background-color 0.2s ease;
 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -139,7 +206,7 @@ video{
 }
 
 .duration{
-    position: absolute; /* Added */
+    position: absolute;
     bottom: 8px;
     right: 8px;
     background-color: rgba(0,0,0,0.8);
@@ -152,7 +219,7 @@ video{
 /* Video Information */
 
 .video-information{
-    display: flex; /* Added */
+    display: flex;
     gap: 12px;
     margin-top: 10px;
 }
@@ -167,11 +234,12 @@ video{
 .video-information h6{
     font-size: 14px;
     margin-bottom: 4px;
+    color: var(--text-primary);
 }
 
 .video-information p{
     font-size: 12px;
-    color: #606060;
+    color: var(--text-secondary);
     margin-bottom: 2px;
 }
 
@@ -181,19 +249,22 @@ button{
     border: none;
     padding: 8px 14px;
     border-radius: 20px;
-    background-color: #f2f2f2;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 button:hover{
-    background-color: #e5e5e5;
+    background-color: var(--button-hover);
 }
 
 /* Notification Badge */
 
-header div span:nth-child(3){
+header div span:nth-child(4){
     font-size: 12px;
     font-weight: bold;
+    color: var(--text-primary);
 }
 
 /* Footer */
@@ -205,7 +276,7 @@ footer{
 
 footer p{
     font-size: 12px;
-    color: #606060;
+    color: var(--text-secondary);
     margin-bottom: 10px;
     line-height: 1.5;
 }
@@ -219,7 +290,7 @@ main::-webkit-scrollbar{
 
 aside::-webkit-scrollbar-thumb,
 main::-webkit-scrollbar-thumb{
-    background-color: #c7c7c7;
+    background-color: var(--scrollbar-thumb);
     border-radius: 10px;
 }
 
@@ -228,7 +299,7 @@ main::-webkit-scrollbar-thumb{
 @media (max-width: 900px){
 
     aside{
-        width: 80px; /* Added compact sidebar */
+        width: 80px;
     }
 
     main{
@@ -236,7 +307,7 @@ main::-webkit-scrollbar-thumb{
     }
 
     aside h3{
-        display: none; /* Added */
+        display: none;
     }
 
     .buttons{
@@ -263,31 +334,35 @@ main::-webkit-scrollbar-thumb{
     display: flex;
     gap: 10px;
     padding: 10px 20px;
-    overflow-x: auto; /* allows scrolling like YouTube */
+    overflow-x: auto;
     white-space: nowrap;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .chip{
     padding: 8px 14px;
     border: none;
     border-radius: 10px;
-    background-color: #f2f2f2;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     cursor: pointer;
     font-size: 14px;
     white-space: nowrap;
+    transition: background-color 0.2s ease;
 }
 
 .chip:hover{
-    background-color: #f0dddd;
+    background-color: var(--chip-hover);
 }
 
 .chip.active{
-    background-color: black;
-    color: rgb(231, 221, 221);
+    background-color: var(--chip-active-bg);
+    color: var(--chip-active-color);
 }
 
 .chips-wrapper{
     display: flex;
-    justify-content: center; /* true center */
+    justify-content: center;
 }
