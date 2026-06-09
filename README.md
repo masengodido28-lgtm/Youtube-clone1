@@ -74,14 +74,12 @@ This project was created to improve my understanding of:
 - Watch Later Playlist
 - Subscription System
 
-## Screenshots
 
-Add screenshots of your project here.
 
 ## Author
 
 Created by Dido Masengo.
 
-## License
+
 
 This project is for educational purposes only and is not affiliated with YouTube or Google.
