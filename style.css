@@ -258,3 +258,36 @@ main::-webkit-scrollbar-thumb{
         grid-template-columns: 1fr;
     }
 }
+
+.category-bar{
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    overflow-x: auto; /* allows scrolling like YouTube */
+    white-space: nowrap;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.chip{
+    padding: 8px 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.chip:hover{
+    background-color: #f0dddd;
+}
+
+.chip.active{
+    background-color: black;
+    color: rgb(231, 221, 221);
+}
+
+.chips-wrapper{
+    display: flex;
+    justify-content: center; /* true center */
+}
